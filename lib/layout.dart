@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:template_flutter_beam/component/shared/app_top_bar.dart';
+import 'package:template_flutter_beam/component/shared/sidebar.dart';
+import 'package:template_flutter_beam/models/other.dart';
 
 class Layout extends StatelessWidget {
   final Widget child;
@@ -11,14 +14,25 @@ class Layout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: const PreferredSize(
-      //     preferredSize: Size.fromHeight(100.0), // here the desired height
-      //     child: AppTopBar(
-      //       title: '1111111',
-      //     )),
-      body: SafeArea(child: child),
+    var currentRoute = GoRouterState.of(context).path;
 
+    List<FindPath> pathList = [
+      FindPath(pathname: '/', heading: 'Demo', description: 'ตัวอย่าง')
+    ];
+
+    final findPathList =
+        pathList.firstWhere((item) => item.pathname == currentRoute);
+
+    return Scaffold(
+      appBar: PreferredSize(
+          preferredSize:
+              const Size.fromHeight(100.0), // here the desired height
+          child: AppTopBar(
+            title: findPathList.heading,
+            description: "${findPathList.description}",
+          )),
+      drawer: const SideBar(),
+      body: SafeArea(child: child),
       // bottomSheet: const Footer(),
     );
   }
