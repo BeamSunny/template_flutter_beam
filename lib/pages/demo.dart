@@ -12,14 +12,14 @@ class _DemoState extends State<Demo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: MedDrawer(),
-      // appBar: MedAppbar(title: 'Medication Cart Monitoring'),
       body: Container(
         width: double.infinity,
-        child: Layout(
+        child: const Layout(
           child: SingleChildScrollView(
             child: SafeArea(
-              child: Text("สวัสดี"),
+              child: Column(
+                children: [Text("Test")],
+              ),
             ),
           ),
         ),

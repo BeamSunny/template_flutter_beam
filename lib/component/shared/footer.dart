@@ -7,13 +7,12 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: 15),
       color: Theme.of(context).appColors.primaryMain,
       alignment: Alignment.center,
       child: Text(
-        'Footer',
-        style: Theme.of(context).appTexts.bodySm.copyWith(
-              fontWeight: FontWeight.bold,
+        "Version 0.1.1",
+        style: Theme.of(context).appTexts.body.copyWith(
               color: Theme.of(context).appColors.white,
             ),
       ),

@@ -75,7 +75,7 @@ class SideBar extends StatelessWidget {
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 15),
+                          horizontal: 10, vertical: 15),
                       width: double.infinity,
                       child: Text(
                         "OVERVIEW",
@@ -86,6 +86,9 @@ class SideBar extends StatelessWidget {
                     ),
                     ...menuList.map((data) {
                       return ExpansionTile(
+                        dense: true,
+                        tilePadding: const EdgeInsets.symmetric(
+                            vertical: 0, horizontal: 10),
                         shape: const Border(),
                         trailing: Icon(
                           Icons.keyboard_arrow_down_rounded,

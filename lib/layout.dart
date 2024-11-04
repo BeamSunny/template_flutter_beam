@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:template_flutter_beam/component/shared/app_top_bar.dart';
+import 'package:template_flutter_beam/component/shared/footer.dart';
 import 'package:template_flutter_beam/component/shared/sidebar.dart';
 import 'package:template_flutter_beam/models/other.dart';
 
@@ -32,8 +33,20 @@ class Layout extends StatelessWidget {
             description: "${findPathList.description}",
           )),
       drawer: const SideBar(),
-      body: SafeArea(child: child),
-      // bottomSheet: const Footer(),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 20,
+              ),
+              child: child,
+            ),
+          ),
+          const Footer(),
+        ],
+      ),
     );
   }
 }
