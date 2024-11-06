@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:template_flutter_beam/main.dart';
 import 'package:template_flutter_beam/models/menu.dart';
+import 'package:go_router/go_router.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
@@ -118,7 +119,10 @@ class SideBar extends StatelessWidget {
                                   contentPadding:
                                       const EdgeInsets.only(left: 45),
                                   dense: true,
-                                  onTap: child.onTap,
+                                  onTap: () {
+                                    // print(child.path);
+                                    context.go(child.path);
+                                  },
                                   title: Text(
                                     child.title,
                                     style: Theme.of(context)

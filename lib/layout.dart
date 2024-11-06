@@ -18,13 +18,16 @@ class Layout extends StatelessWidget {
     var currentRoute = GoRouterState.of(context).path;
 
     List<FindPath> pathList = [
-      FindPath(pathname: '/', heading: 'Demo', description: 'ตัวอย่าง')
+      FindPath(pathname: '/', heading: 'Demo', description: 'ตัวอย่าง'),
+      FindPath(
+          pathname: '/launchpad', heading: 'Launchpad', description: 'เมนู')
     ];
 
     final findPathList =
         pathList.firstWhere((item) => item.pathname == currentRoute);
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
           preferredSize:
               const Size.fromHeight(100.0), // here the desired height
@@ -35,15 +38,7 @@ class Layout extends StatelessWidget {
       drawer: const SideBar(),
       body: Column(
         children: [
-          Expanded(
-            child: Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 20,
-              ),
-              child: child,
-            ),
-          ),
+          Expanded(child: child),
           const Footer(),
         ],
       ),

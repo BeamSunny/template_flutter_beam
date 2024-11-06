@@ -19,11 +19,13 @@ List<FindPath> pathList = [FindPath(pathname: '/', heading: 'Demo')];
 //For Side Bar
 class MenuChild {
   final String title;
+  final String path;
   final void Function() onTap;
 
   MenuChild({
     required this.title,
     required this.onTap,
+    required this.path,
   });
 }
 
