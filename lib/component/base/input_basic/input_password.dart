@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:template_flutter_beam/main.dart';
 
-class InputBase extends StatefulWidget {
+class InputPassword extends StatefulWidget {
   final String? label;
   final String? placeholder;
 
   final TextEditingController controller;
   final TextInputType inputType;
-  final Icon? prefixIcon;
-  final Icon? suffixIcon;
   final String? Function(String?) validator;
 
-  const InputBase(
-      {super.key,
-      this.label,
-      this.placeholder,
-      required this.controller,
-      required this.inputType,
-      required this.validator,
-      this.prefixIcon,
-      this.suffixIcon});
+  const InputPassword({
+    super.key,
+    this.label,
+    this.placeholder,
+    required this.controller,
+    required this.inputType,
+    required this.validator,
+  });
 
   @override
-  State<InputBase> createState() => _InputBaseState();
+  State<InputPassword> createState() => _InputPasswordState();
 }
 
-class _InputBaseState extends State<InputBase> {
+class _InputPasswordState extends State<InputPassword> {
+  bool _passwordVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,6 +38,7 @@ class _InputBaseState extends State<InputBase> {
           height: 8,
         ),
         TextFormField(
+          obscureText: !_passwordVisible,
           controller: widget.controller,
           keyboardType: widget.inputType,
           style: Theme.of(context)
@@ -46,8 +46,16 @@ class _InputBaseState extends State<InputBase> {
               .subtitle
               .copyWith(fontWeight: FontWeight.normal),
           decoration: InputDecoration(
-              prefixIcon: widget.prefixIcon,
-              suffixIcon: widget.suffixIcon,
+              suffixIcon: GestureDetector(
+                child: Icon(_passwordVisible
+                    ? Icons.visibility_outlined
+                    : Icons.visibility_off_outlined),
+                onTap: () {
+                  setState(() {
+                    _passwordVisible = !_passwordVisible;
+                  });
+                },
+              ),
               hintText: widget.placeholder,
               floatingLabelBehavior: FloatingLabelBehavior.never,
               border: OutlineInputBorder(

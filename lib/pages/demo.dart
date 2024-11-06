@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:template_flutter_beam/component/base/button.dart';
 import 'package:template_flutter_beam/component/base/input_basic/input_base.dart';
+import 'package:template_flutter_beam/component/base/input_basic/input_password.dart';
 import 'package:template_flutter_beam/component/base/input_basic/input_select.dart';
 import 'package:template_flutter_beam/layout.dart';
 import 'package:template_flutter_beam/main.dart';
@@ -18,6 +19,7 @@ class _DemoState extends State<Demo> {
   //Input State
   final _formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   Future<void> onTap() async {
     print("Tab");
@@ -121,6 +123,21 @@ class _DemoState extends State<Demo> {
                       setState(() {
                         _selectedOption = value;
                       });
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  InputPassword(
+                    controller: passwordController,
+                    inputType: TextInputType.text,
+                    label: 'Password',
+                    placeholder: "Password",
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'กรอกข้อมูล';
+                      }
+                      return null;
                     },
                   ),
                   const SizedBox(
