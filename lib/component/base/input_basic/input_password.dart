@@ -47,15 +47,14 @@ class _InputPasswordState extends State<InputPassword> {
               .copyWith(fontWeight: FontWeight.normal),
           decoration: InputDecoration(
               suffixIcon: GestureDetector(
-                child: Icon(_passwordVisible
-                    ? Icons.visibility_outlined
-                    : Icons.visibility_off_outlined),
-                onTap: () {
-                  setState(() {
-                    _passwordVisible = !_passwordVisible;
-                  });
-                },
-              ),
+                  child: Icon(_passwordVisible
+                      ? Icons.visibility_outlined
+                      : Icons.visibility_off_outlined),
+                  onTap: () {
+                    setState(() {
+                      _passwordVisible = !_passwordVisible;
+                    });
+                  }),
               hintText: widget.placeholder,
               floatingLabelBehavior: FloatingLabelBehavior.never,
               border: OutlineInputBorder(

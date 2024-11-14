@@ -114,6 +114,22 @@ class _DemoState extends State<Demo> {
                   const SizedBox(
                     height: 10,
                   ),
+                  InputBase(
+                    enabled: false,
+                    controller: nameController,
+                    inputType: TextInputType.text,
+                    label: 'Name',
+                    placeholder: "Input Name Here",
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'กรอกข้อมูล';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   InputSelect(
                     optionList: options,
                     label: "Select Option",

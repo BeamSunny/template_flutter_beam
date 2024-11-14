@@ -10,6 +10,7 @@ class InputBase extends StatefulWidget {
   final Icon? prefixIcon;
   final Icon? suffixIcon;
   final String? Function(String?) validator;
+  final bool? enabled;
 
   const InputBase(
       {super.key,
@@ -19,7 +20,8 @@ class InputBase extends StatefulWidget {
       required this.inputType,
       required this.validator,
       this.prefixIcon,
-      this.suffixIcon});
+      this.suffixIcon,
+      this.enabled});
 
   @override
   State<InputBase> createState() => _InputBaseState();
@@ -39,6 +41,7 @@ class _InputBaseState extends State<InputBase> {
           height: 8,
         ),
         TextFormField(
+          enabled: widget.enabled,
           controller: widget.controller,
           keyboardType: widget.inputType,
           style: Theme.of(context)

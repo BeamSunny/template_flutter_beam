@@ -17,14 +17,15 @@ class InputSelect extends StatelessWidget {
   final ValueChanged<SelectOption?>? onChanged;
 
   final List<SelectOption> optionList;
-  const InputSelect(
-      {super.key,
-      required this.optionList,
-      this.label,
-      this.placeholder,
-      this.validator,
-      this.onChanged,
-      this.selectedValue});
+  const InputSelect({
+    super.key,
+    required this.optionList,
+    this.label,
+    this.placeholder,
+    this.validator,
+    this.onChanged,
+    this.selectedValue,
+  });
 
   @override
   Widget build(BuildContext context) {

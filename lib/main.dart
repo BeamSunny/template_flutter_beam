@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:template_flutter_beam/pages/demo.dart';
 import 'package:template_flutter_beam/pages/launchpad.dart';
+import 'package:template_flutter_beam/pages/splash.dart';
 import 'package:template_flutter_beam/state/index.dart';
 import 'package:template_flutter_beam/theme/breakpoint.dart';
 import 'package:template_flutter_beam/theme/colors.dart';
@@ -56,7 +57,12 @@ extension ThemeDataExtended on ThemeData {
 }
 
 //Router to Page
-final _router = GoRouter(initialLocation: '/', routes: [
+final _router = GoRouter(initialLocation: '/splash', routes: [
+  GoRoute(
+    name: 'splash',
+    path: '/splash',
+    builder: (context, state) => const SplashPage(),
+  ),
   GoRoute(name: 'demo', path: '/', builder: (context, state) => const Demo()),
   GoRoute(
       name: 'launchpad',
